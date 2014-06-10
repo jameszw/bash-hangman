@@ -21,12 +21,12 @@ array_contains() {
     return $(false)
 }
 
-gameover() {
+game_over() {
     echo -e "Sorry, the answer is: $answer"
     echo -e "Thanks for playing. Goodbye.\n"
 }
 
-gamewin() {
+game_win() {
     # win condition: no more blanks to guess
 
     # search for underscores in $question
@@ -163,7 +163,7 @@ main() {
             break
         fi
 
-        if gamewin; then
+        if game_win; then
             exit
         fi
 
@@ -184,7 +184,7 @@ main() {
         print_letters
     done
 
-    gameover
+    game_over
 }
 
 main
