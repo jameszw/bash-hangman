@@ -22,8 +22,8 @@ array_contains() {
 }
 
 gameover() {
-    echo -e "Game over. Answer: $answer"
-    echo -e "Thanks for playing. Goodbye!\n"
+    echo -e "Sorry, the answer is: $answer"
+    echo -e "Thanks for playing. Goodbye.\n"
 }
 
 gamewin() {
@@ -34,12 +34,22 @@ gamewin() {
         return $(false)
     fi
 
-    echo -e "You win! Great job, thanks for playing!\n"
+    echo -e "That's correct! The answer is: $answer"
+
+    local lettercount="${#letters[@]}"
+    local units="letter"
+    if [[ $lettercount > 1 ]]; then
+        units+="s"
+    fi
+
+    echo -e "You won using $lettercount $units."
+    echo -e "Great job, and thanks for playing!\n"
 }
 
 generate_question() {
     # retrieve a random word from word file
     answer=$(python -c "import random, sys; print random.choice(open(sys.argv[1]).readlines())" $words_file)
+    answer="Hello"
 
     # generate blanks for the question
     local i
