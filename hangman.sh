@@ -49,7 +49,6 @@ gamewin() {
 generate_question() {
     # retrieve a random word from word file
     answer=$(python -c "import random, sys; print random.choice(open(sys.argv[1]).readlines())" $words_file)
-    answer="Hello"
 
     # generate blanks for the question
     local i
