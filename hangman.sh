@@ -62,7 +62,7 @@ generate_question() {
 
     # the number of attempts is based on the length of the answer
     # somewhat arbitrary formula
-    num_attempts=$(( ${#answer} / 2 + 3 ))
+    num_attempts=$(( ${#answer} / 2 + 5 ))
 }
 
 print_letters() {
